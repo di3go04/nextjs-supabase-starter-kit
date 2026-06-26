@@ -10,7 +10,7 @@ export const APP_URL =
 
 export const APP_NAME = "Next.js + Supabase Starter Kit";
 
-export const SUPPORT_EMAIL = "support@your-app.com";
+export const SUPPORT_EMAIL = "support@starter-kit-di3go04.vercel.app";
 
 export const NAV_LINKS = [
   { href: "/dashboard", labelKey: "nav.dashboard" },

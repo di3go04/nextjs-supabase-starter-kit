@@ -7,7 +7,7 @@ This project is a commercial-grade SaaS starter kit. We welcome contributions th
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-username/nextjs-supabase-starter-kit.git
+git clone https://github.com/di3go04/nextjs-supabase-starter-kit.git
 cd nextjs-supabase-starter-kit
 bun install
 cp .env.local.example .env.local
@@ -82,7 +82,7 @@ Before opening a feature request, check the [roadmap](./ROADMAP.md) to see if it
 
 **DO NOT open a public issue for security vulnerabilities.**
 
-Email: security@your-starter-kit.com with:
+Email: security@di3go04.dev with:
 
 - Description of the vulnerability
 - Steps to reproduce

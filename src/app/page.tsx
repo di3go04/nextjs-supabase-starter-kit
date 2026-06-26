@@ -396,7 +396,7 @@ export default function Home() {
           <div className="flex gap-4">
             <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
             <Link href="/register" className="hover:text-foreground">Demo</Link>
-            <a href="https://github.com/your-username/nextjs-supabase-starter-kit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">GitHub</a>
+            <a href="https://github.com/di3go04/nextjs-supabase-starter-kit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">GitHub</a>
           </div>
         </div>
       </footer>

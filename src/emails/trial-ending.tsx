@@ -15,7 +15,7 @@ import {
 export function TrialEndingEmail({
   name,
   daysLeft = 3,
-  upgradeUrl = "https://your-app.com/dashboard/billing",
+  upgradeUrl = "https://starter-kit-di3go04.vercel.app/dashboard/billing",
 }: {
   name?: string;
   daysLeft?: number;

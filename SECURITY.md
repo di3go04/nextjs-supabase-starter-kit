@@ -13,7 +13,7 @@ We actively support the latest minor version only:
 
 **DO NOT open a public GitHub issue for security vulnerabilities.**
 
-Email: **security@your-starter-kit.com**
+Email: **security@di3go04.dev**
 
 Please include:
 

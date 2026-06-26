@@ -16,7 +16,7 @@ import * as React from "react";
 export function SubscriptionSuccessEmail({
   name,
   plan,
-  dashboardUrl = "https://your-app.com/dashboard",
+  dashboardUrl = "https://starter-kit-di3go04.vercel.app/dashboard",
 }: {
   name?: string;
   plan: string;

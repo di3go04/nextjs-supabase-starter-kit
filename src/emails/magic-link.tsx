@@ -44,8 +44,8 @@ export function MagicLinkEmail({
             </Section>
             <Text className="text-xs text-gray-500">
               Si no pediste este link, puedes ignorar este correo.{" "}
-              <Link href="https://your-app.com" className="text-gray-700 underline">
-                your-app.com
+              <Link href="https://starter-kit-di3go04.vercel.app" className="text-gray-700 underline">
+                starter-kit-di3go04.vercel.app
               </Link>
             </Text>
             <Hr className="my-4 border-gray-200" />

@@ -16,7 +16,7 @@ import * as React from "react";
 
 export function WelcomeEmail({
   name,
-  loginUrl = "https://your-app.com/login",
+  loginUrl = "https://starter-kit-di3go04.vercel.app/login",
 }: {
   name?: string;
   loginUrl?: string;
@@ -47,8 +47,8 @@ export function WelcomeEmail({
             <Hr className="my-4 border-gray-200" />
             <Text className="text-xs text-gray-500">
               Si no creaste esta cuenta, puedes ignorar este correo.{" "}
-              <Link href="https://your-app.com" className="text-gray-700 underline">
-                your-app.com
+              <Link href="https://starter-kit-di3go04.vercel.app" className="text-gray-700 underline">
+                starter-kit-di3go04.vercel.app
               </Link>
             </Text>
           </Container>

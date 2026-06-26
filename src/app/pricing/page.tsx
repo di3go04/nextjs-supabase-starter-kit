@@ -27,7 +27,7 @@ const PLANS = [
       { text: "Multi-project license", included: false },
     ],
     cta: "Buy now",
-    href: "https://gumroad.com/l/your-starter-kit",
+    href: "https://gumroad.com/l/starter-kit-di3go04",
   },
   {
     id: "team",
@@ -49,7 +49,7 @@ const PLANS = [
       { text: "Custom feature requests", included: false },
     ],
     cta: "Get Team license",
-    href: "https://gumroad.com/l/your-starter-kit-team",
+    href: "https://gumroad.com/l/starter-kit-di3go04-team",
   },
   {
     id: "lifetime",
@@ -70,7 +70,7 @@ const PLANS = [
       { text: "Custom feature requests (1 per quarter)", included: true },
     ],
     cta: "Get Lifetime license",
-    href: "https://gumroad.com/l/your-starter-kit-lifetime",
+    href: "https://gumroad.com/l/starter-kit-di3go04-lifetime",
   },
 ];
 
@@ -81,7 +81,7 @@ const FAQ = [
   },
   {
     q: "Can I get a refund?",
-    a: "Yes — 14-day no-questions-asked refund. If the kit doesn't work for you, email refunds@your-starter-kit.com.",
+    a: "Yes — 14-day no-questions-asked refund. If the kit doesn't work for you, email refunds@di3go04.dev.",
   },
   {
     q: "Do you offer student / nonprofit discounts?",
@@ -93,7 +93,7 @@ const FAQ = [
   },
   {
     q: "Can I upgrade my license later?",
-    a: "Yes — pay the difference anytime within the first 12 months. Email billing@your-starter-kit.com.",
+    a: "Yes — pay the difference anytime within the first 12 months. Email billing@di3go04.dev.",
   },
   {
     q: "Is the code mine after purchase?",
@@ -280,7 +280,7 @@ export default function PricingPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" variant="secondary">
-                <a href="https://gumroad.com/l/your-starter-kit" target="_blank" rel="noopener noreferrer">
+                <a href="https://gumroad.com/l/starter-kit-di3go04" target="_blank" rel="noopener noreferrer">
                   <Building2 className="mr-2 h-4 w-4" /> Comprar licencia
                 </a>
               </Button>

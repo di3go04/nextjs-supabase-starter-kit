@@ -12,9 +12,40 @@
 [![License](https://img.shields.io/badge/License-MIT%20%2B%20Commercial-blue)](./LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](./CHANGELOG.md)
 
-[🛒 Comprar $89](https://gumroad.com/l/your-starter-kit) · [🌟 Demo en vivo](https://your-app.com) · [📚 Documentación](#) · [💬 Discord](https://discord.gg/your-invite)
+[🛒 Comprar $89](https://gumroad.com/l/starter-kit-di3go04) · [🌟 Demo en vivo](https://starter-kit-di3go04.vercel.app) · [📚 Documentación](#) · [💬 Discord](https://discord.gg/starter-kit)
 
 </div>
+
+---
+
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>Landing page</b></td>
+    <td width="50%" align="center"><b>Login (Magic Link + OAuth)</b></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/01-landing.png" alt="Landing"/></td>
+    <td><img src="./screenshots/02-login.png" alt="Login"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Pricing — 3 planes</b></td>
+    <td align="center"><b>i18n EN/ES/PT funcional</b></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/04-pricing.png" alt="Pricing"/></td>
+    <td><img src="./screenshots/05-i18n-english.png" alt="i18n English"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>404 page</b></td>
+    <td align="center"><b>Middleware auth redirect</b></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/06-404.png" alt="404"/></td>
+    <td><img src="./screenshots/07-middleware-redirect.png" alt="Middleware"/></td>
+  </tr>
+</table>
 
 ---
 
@@ -35,7 +66,7 @@ Construir un SaaS desde cero toma 3-6 meses solo para tener auth + pagos + email
 ## ⚡ Quick start
 
 ```bash
-git clone https://github.com/your-username/nextjs-supabase-starter-kit.git
+git clone https://github.com/di3go04/nextjs-supabase-starter-kit.git
 cd nextjs-supabase-starter-kit
 bun install
 cp .env.local.example .env.local  # rellena credenciales
@@ -118,7 +149,7 @@ docker-compose.yml                                # App + Redis + Stripe CLI
 ### 1. Clonar e instalar
 
 ```bash
-git clone https://github.com/your-username/nextjs-supabase-starter-kit.git
+git clone https://github.com/di3go04/nextjs-supabase-starter-kit.git
 cd nextjs-supabase-starter-kit
 bun install
 cp .env.local.example .env.local
@@ -185,19 +216,19 @@ docker build -t starter-kit .     # producción
 | Team (5 devs) | $249 | 5 | 1 año | Prioridad 24h + Discord |
 | Lifetime | $499 | ∞ | Para siempre | Slack + calls trimestrales |
 
-Ver [`/pricing`](https://your-app.com/pricing) para detalle completo.
+Ver [`/pricing`](https://starter-kit-di3go04.vercel.app/pricing) para detalle completo.
 
 ## 📜 Licencia
 
 Dual license: **MIT** (uso personal/open-source) + **Commercial** (productos pagos).
 
-Ver [`LICENSE`](./LICENSE) para detalle. Compra tu licencia en [`/pricing`](https://your-app.com/pricing).
+Ver [`LICENSE`](./LICENSE) para detalle. Compra tu licencia en [`/pricing`](https://starter-kit-di3go04.vercel.app/pricing).
 
 ## 💬 Comunidad
 
-- 💬 [Discord](https://discord.gg/your-invite) — Soporte y networking
-- 🐛 [Issues](https://github.com/your-username/nextjs-supabase-starter-kit/issues) — Bugs y feature requests
-- 💡 [Discussions](https://github.com/your-username/nextjs-supabase-starter-kit/discussions) — Preguntas y feedback
+- 💬 [Discord](https://discord.gg/starter-kit) — Soporte y networking
+- 🐛 [Issues](https://github.com/di3go04/nextjs-supabase-starter-kit/issues) — Bugs y feature requests
+- 💡 [Discussions](https://github.com/di3go04/nextjs-supabase-starter-kit/discussions) — Preguntas y feedback
 - 🐦 [@your-handle](https://twitter.com/your-handle) — Updates
 
 ## 🙏 Créditos
@@ -208,7 +239,7 @@ Construido con [Next.js](https://nextjs.org), [Supabase](https://supabase.com), 
 
 <div align="center">
 
-**[🛒 Comprar $89](https://gumroad.com/l/your-starter-kit)** · Garantía de 14 días · Sin preguntas
+**[🛒 Comprar $89](https://gumroad.com/l/starter-kit-di3go04)** · Garantía de 14 días · Sin preguntas
 
 Hecho con ❤️ para devs que quieren lanzar rápido.
 
