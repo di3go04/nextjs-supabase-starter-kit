@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/badge/License-MIT%20%2B%20Commercial-blue)](./LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](./CHANGELOG.md)
 
-[🛒 Comprar $89](https://gumroad.com/l/starter-kit-di3go04) · [🌟 Demo en vivo](https://starter-kit-di3go04.vercel.app) · [📚 Documentación](#) · [💬 Discord](https://discord.gg/starter-kit)
+**[🛒 Comprar $29](https://gumroad.com/l/starter-kit-di3go04)** · [⭐ Star en GitHub](https://github.com/di3go04/nextjs-supabase-starter-kit) · [📚 Documentación](./docs/deploy.md)
 
 </div>
 
@@ -30,22 +30,32 @@
     <td><img src="./screenshots/02-login.png" alt="Login"/></td>
   </tr>
   <tr>
-    <td align="center"><b>Pricing — 3 planes</b></td>
+    <td align="center"><b>Pricing — $29 single payment</b></td>
     <td align="center"><b>i18n EN/ES/PT funcional</b></td>
   </tr>
   <tr>
     <td><img src="./screenshots/04-pricing.png" alt="Pricing"/></td>
     <td><img src="./screenshots/05-i18n-english.png" alt="i18n English"/></td>
   </tr>
-  <tr>
-    <td align="center"><b>404 page</b></td>
-    <td align="center"><b>Middleware auth redirect</b></td>
-  </tr>
-  <tr>
-    <td><img src="./screenshots/06-404.png" alt="404"/></td>
-    <td><img src="./screenshots/07-middleware-redirect.png" alt="Middleware"/></td>
-  </tr>
 </table>
+
+---
+
+## 💰 Precio honesto: $29
+
+Sin demo hosteada. Sin Discord. Sin soporte premium. Solo **código production-ready** + docs.
+
+**¿Por qué $29 y no $89?**
+
+| Lo que SÍ incluye | Lo que NO incluye |
+|-------------------|-------------------|
+| ✅ Código completo (159 archivos) | ❌ Demo en vivo hosteada por mí |
+| ✅ Documentación paso a paso | ❌ Discord / soporte prioritario |
+| ✅ Updates de por vida (v1, v2, v3) | ❌ Onboarding calls |
+| ✅ Email de soporte (72h) | ❌ Customizaciones a medida |
+| ✅ MIT + Commercial license (1 proyecto) | ❌ Multi-project license |
+
+Si en el futuro añado demo + Discord, el precio sube a $89. **Los que compran ahora a $29 reciben el mismo código y todas las actualizaciones futuras gratis.**
 
 ---
 
@@ -68,29 +78,42 @@ Construir un SaaS desde cero toma 3-6 meses solo para tener auth + pagos + email
 ```bash
 git clone https://github.com/di3go04/nextjs-supabase-starter-kit.git
 cd nextjs-supabase-starter-kit
-bun install
+bun install     # o npm install
 cp .env.local.example .env.local  # rellena credenciales
 bun run dev
 ```
 
-## 📊 Comparativa
+## 📊 Lo que recibes
 
-| Feature | Este kit ($89) | Shipfa.st ($199) | Makerkit ($299) | From scratch |
-|---------|:-:|:-:|:-:|:-:|
-| Auth Magic Link + OAuth | ✅ | ✅ | ✅ | ❌ |
-| RBAC con middleware | ✅ | ⚠️ Parcial | ✅ | ❌ |
-| Webhook idempotente | ✅ | ❌ | ✅ | ❌ |
-| Admin panel con MRR | ✅ | ❌ | ✅ | ❌ |
-| Teams / Organizations | ✅ | ❌ | $299+ | ❌ |
-| i18n ES/EN/PT | ✅ | EN only | EN only | ❌ |
-| 8 plantillas React Email | ✅ | 3 | 5 | ❌ |
-| Vitest + Playwright | ✅ | ❌ | ✅ | ❌ |
-| Dockerfile + CI/CD | ✅ | Dockerfile | Dockerfile | ❌ |
-| Sentry + Posthog | ✅ | ❌ | Sentry | ❌ |
-| Audit logs | ✅ | ❌ | $299+ | ❌ |
-| Security headers (CSP) | ✅ | Básico | ✅ | ❌ |
-| **Tiempo hasta prod** | **1-3 días** | 1-3 días | 1-3 días | **3-6 meses** |
-| **Precio** | **$89** | $199 | $299 | $15,000+ |
+```
+159 archivos · 5.000+ líneas de código TypeScript
+
+src/
+├── app/
+│   ├── (auth)/{login,register,auth/callback}        # Auth pública
+│   ├── dashboard/{page,profile,billing,admin,teams} # App privada
+│   ├── pricing/                                     # Landing de venta
+│   ├── api/webhooks/stripe/                         # Webhook idempotente
+│   ├── actions/{auth,profile,billing,admin,teams}.ts # Server Actions
+│   └── {error,loading,not-found,sitemap,robots,manifest}.tsx
+├── components/{dashboard,providers,language-switcher,theme-toggle}
+├── context/user-context.tsx                         # useUser hook
+├── emails/                                          # 8 plantillas React Email
+├── i18n/ + messages/{es,en,pt}.json                 # i18n completo
+├── lib/{supabase,stripe,resend,rbac,flags,logger,ratelimit,site,types}.ts
+└── middleware.ts                                    # Auth + RBAC
+
+supabase/                  # 5 SQL migrations
+├── profiles.sql           # Tabla + RLS + triggers + bucket avatars
+├── subscriptions.sql      # Sincronizada con Stripe
+├── webhook_events.sql     # Idempotencia
+├── audit_logs.sql         # Trazabilidad admin
+├── teams.sql              # Multi-seat B2B
+└── seed.sql               # 6 usuarios demo
+
+Dockerfile + docker-compose.yml + .github/workflows/ci.yml
+tests/unit/ (20 tests) + tests/e2e/ (3 specs)
+```
 
 ## 🛠️ Stack
 
@@ -110,66 +133,38 @@ bun run dev
 | Observabilidad | Sentry + Posthog + pino |
 | DevOps | Dockerfile multi-stage + GitHub Actions CI |
 
-## 📂 Estructura
-
-```
-src/
-├── app/
-│   ├── (auth)/{login,register,auth/callback}     # Auth pública
-│   ├── dashboard/{page,profile,billing,admin,teams}  # App privada
-│   ├── pricing/                                  # Landing de venta
-│   ├── api/webhooks/stripe/                      # Webhook idempotente
-│   ├── actions/{auth,profile,billing,admin,teams}.ts  # Server Actions
-│   ├── {error,loading,not-found,global-error,sitemap,robots,manifest}.tsx
-│   └── page.tsx                                  # Landing
-├── components/
-│   ├── dashboard/header.tsx                      # Header con rol + switcher
-│   ├── providers.tsx                             # Theme + QueryClient + Posthog
-│   ├── language-switcher.tsx                     # i18n ES/EN/PT
-│   └── ui/                                       # shadcn/ui
-├── context/user-context.tsx                      # useUser hook
-├── emails/                                       # 8 plantillas React Email
-├── i18n/                                         # next-intl
-├── lib/{supabase,stripe,resend,rbac,flags,logger,ratelimit,site,types}.ts
-├── messages/{es,en,pt}.json                      # Traducciones
-└── middleware.ts                                 # Auth + RBAC
-supabase/                                          # SQL migrations
-├── profiles.sql
-├── subscriptions.sql
-├── webhook_events.sql
-├── audit_logs.sql
-└── teams.sql
-.github/workflows/ci.yml                          # Lint + typecheck + tests
-Dockerfile                                        # Multi-stage standalone
-docker-compose.yml                                # App + Redis + Stripe CLI
-```
-
-## 🔧 Setup (5 pasos)
+## 🔧 Setup (5 pasos · todo con free tier)
 
 ### 1. Clonar e instalar
 
 ```bash
 git clone https://github.com/di3go04/nextjs-supabase-starter-kit.git
 cd nextjs-supabase-starter-kit
-bun install
+bun install     # o npm install
 cp .env.local.example .env.local
 ```
 
-### 2. Configurar Supabase
+### 2. Configurar Supabase (gratis)
 
-1. Crea proyecto en [supabase.com](https://supabase.com).
+1. Crea proyecto en [supabase.com](https://supabase.com) (free tier: 500MB DB, 50k MAU).
 2. Copia URL + anon key + service_role a `.env.local`.
-3. En SQL Editor, ejecuta en orden: `profiles.sql` → `subscriptions.sql` → `webhook_events.sql` → `audit_logs.sql` → `teams.sql`.
+3. En SQL Editor, ejecuta en orden:
+   - `supabase/profiles.sql`
+   - `supabase/subscriptions.sql`
+   - `supabase/webhook_events.sql`
+   - `supabase/audit_logs.sql`
+   - `supabase/teams.sql`
+   - (opcional) `supabase/seed.sql` para datos demo
 4. Habilita Google y GitHub en Authentication → Providers.
 5. Añade `http://localhost:3000/auth/callback` a las URLs de redirección.
 
-### 3. Configurar Stripe
+### 3. Configurar Stripe (test mode gratis)
 
 1. Copia `sk_test_xxx` y `pk_test_xxx` a `.env.local`.
 2. Crea productos Pro ($19) y Enterprise ($99), pega los `price_xxx`.
 3. Para webhook local: `bun run stripe:listen` (copia el `whsec_xxx` a `.env.local`).
 
-### 4. Configurar Resend
+### 4. Configurar Resend (3.000 emails/mes gratis)
 
 ```bash
 # Mientras verificas dominio, usa onboarding@resend.dev
@@ -183,15 +178,15 @@ RESEND_FROM_EMAIL=onboarding@resend.dev
 bun run dev     # http://localhost:3000
 ```
 
-## 🚀 Deploy en Vercel (1 clic)
+## 🚀 Deploy en Vercel (free tier)
 
-1. Importa el repo en [vercel.com/new](https://vercel.com/new).
-2. Configura todas las variables de `.env.local` en Vercel.
-3. Deploy. ✅
-4. En Stripe Dashboard → Webhooks, añade `https://your-app.vercel.app/api/webhooks/stripe`.
-5. Copia el `whsec_` a `STRIPE_WEBHOOK_SECRET` en Vercel y redeploya.
+```bash
+./deploy-vercel.sh
+```
 
-Ver [`docs/deploy.md`](./docs/deploy.md) para guía completa.
+El script sube las variables automáticamente y hace deploy. Ver [`docs/deploy.md`](./docs/deploy.md) para guía completa.
+
+**Costos**: Vercel free (hobby) + Supabase free + Stripe (solo comisiones por venta) + Resend free = **$0/mes** hasta que tengas tráfico real.
 
 ## 🧪 Tests
 
@@ -208,39 +203,38 @@ docker compose --profile dev up   # app + redis + stripe-cli
 docker build -t starter-kit .     # producción
 ```
 
-## 📦 Planes y precios
+## 📦 Comprar
 
-| Plan | Precio | Proyectos | Updates | Soporte |
-|------|--------|-----------|---------|---------|
-| Single Developer | $89 | 1 | 6 meses | Email 48h |
-| Team (5 devs) | $249 | 5 | 1 año | Prioridad 24h + Discord |
-| Lifetime | $499 | ∞ | Para siempre | Slack + calls trimestrales |
+| Plan | Precio | Incluye |
+|------|--------|---------|
+| **Developer License** | **$29** | 1 proyecto commercial, updates de por vida, email soporte |
+| Team License (próximamente) | $99 | 5 proyectos, soporte prioritario |
+| Lifetime License (próximamente) | $199 | Proyectos ilimitados |
 
-Ver [`/pricing`](https://starter-kit-di3go04.vercel.app/pricing) para detalle completo.
+👉 **[Comprar $29 en Gumroad](https://gumroad.com/l/starter-kit-di3go04)**
+
+Garantía 14 días. Si no te sirve, te devuelvo el 100% sin preguntas.
 
 ## 📜 Licencia
 
 Dual license: **MIT** (uso personal/open-source) + **Commercial** (productos pagos).
 
-Ver [`LICENSE`](./LICENSE) para detalle. Compra tu licencia en [`/pricing`](https://starter-kit-di3go04.vercel.app/pricing).
+Ver [`LICENSE`](./LICENSE) para detalle.
 
-## 💬 Comunidad
+## 💬 Soporte
 
-- 💬 [Discord](https://discord.gg/starter-kit) — Soporte y networking
-- 🐛 [Issues](https://github.com/di3go04/nextjs-supabase-starter-kit/issues) — Bugs y feature requests
-- 💡 [Discussions](https://github.com/di3go04/nextjs-supabase-starter-kit/discussions) — Preguntas y feedback
-- 🐦 [@your-handle](https://twitter.com/your-handle) — Updates
+- 🐛 [GitHub Issues](https://github.com/di3go04/nextjs-supabase-starter-kit/issues) — Bugs y feature requests
+- 💡 [GitHub Discussions](https://github.com/di3go04/nextjs-supabase-starter-kit/discussions) — Preguntas técnicas
+- 📧 Email: `support@di3go04.dev` (72h response)
 
 ## 🙏 Créditos
 
-Construido con [Next.js](https://nextjs.org), [Supabase](https://supabase.com), [Stripe](https://stripe.com), [Resend](https://resend.com), [shadcn/ui](https://ui.shadcn.com), [Tailwind CSS](https://tailwindcss.com) y mucho ☕.
+Construido con [Next.js](https://nextjs.org), [Supabase](https://supabase.com), [Stripe](https://stripe.com), [Resend](https://resend.com), [shadcn/ui](https://ui.shadcn.com), [Tailwind CSS](https://tailwindcss.com).
 
 ---
 
 <div align="center">
 
-**[🛒 Comprar $89](https://gumroad.com/l/starter-kit-di3go04)** · Garantía de 14 días · Sin preguntas
-
-Hecho con ❤️ para devs que quieren lanzar rápido.
+**[🛒 Comprar $29](https://gumroad.com/l/starter-kit-di3go04)** · Garantía 14 días · Updates de por vida
 
 </div>

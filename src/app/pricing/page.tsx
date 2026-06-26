@@ -1,103 +1,73 @@
 "use client";
 
 import Link from "next/link";
-import { Check, X, Sparkles, Crown, Building2, Zap } from "lucide-react";
+import { Check, Zap, Code2, FileText, Github, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 
-const PLANS = [
-  {
-    id: "single",
-    name: "Single Developer",
-    price: 89,
-    period: "one-time",
-    description: "Para devs individuales lanzando su propio SaaS.",
-    icon: Zap,
-    highlight: false,
-    features: [
-      { text: "Full source code (Next.js + Supabase + Stripe)", included: true },
-      { text: "1 commercial project (closed source OK)", included: true },
-      { text: "6 months of updates", included: true },
-      { text: "Email support (48h response)", included: true },
-      { text: "Discord community access", included: true },
-      { text: "Attribution required", included: true },
-      { text: "Priority support", included: false },
-      { text: "Multi-project license", included: false },
-    ],
-    cta: "Buy now",
-    href: "https://gumroad.com/l/starter-kit-di3go04",
-  },
-  {
-    id: "team",
-    name: "Team",
-    price: 249,
-    period: "one-time",
-    description: "Para equipos pequeños construyendo SaaS juntos.",
-    icon: Sparkles,
-    highlight: true,
-    badge: "Most popular",
-    features: [
-      { text: "Full source code (Next.js + Supabase + Stripe)", included: true },
-      { text: "Up to 5 commercial projects", included: true },
-      { text: "1 year of updates", included: true },
-      { text: "Priority email support (24h response)", included: true },
-      { text: "Private Discord channel", included: true },
-      { text: "No attribution required", included: true },
-      { text: "Onboarding call (1h)", included: true },
-      { text: "Custom feature requests", included: false },
-    ],
-    cta: "Get Team license",
-    href: "https://gumroad.com/l/starter-kit-di3go04-team",
-  },
-  {
-    id: "lifetime",
-    name: "Lifetime",
-    price: 499,
-    period: "one-time",
-    description: "Para agencias y empresas que venden SaaS repetidamente.",
-    icon: Crown,
-    highlight: false,
-    features: [
-      { text: "Full source code (Next.js + Supabase + Stripe)", included: true },
-      { text: "Unlimited commercial projects", included: true },
-      { text: "Lifetime updates (including v2, v3...)", included: true },
-      { text: "Priority email + Slack support", included: true },
-      { text: "Private Discord + direct line", included: true },
-      { text: "No attribution required", included: true },
-      { text: "Quarterly onboarding calls (4h/year)", included: true },
-      { text: "Custom feature requests (1 per quarter)", included: true },
-    ],
-    cta: "Get Lifetime license",
-    href: "https://gumroad.com/l/starter-kit-di3go04-lifetime",
-  },
+const INCLUDED = [
+  "Full source code (Next.js 16 + Supabase + Stripe + Resend)",
+  "Auth Magic Link + OAuth (Google/GitHub)",
+  "RBAC middleware (user/free/premium/admin)",
+  "Stripe Checkout + idempotent webhook",
+  "Admin panel with MRR/churn metrics",
+  "Teams/Organizations + invitations",
+  "8 React Email templates",
+  "i18n ES/EN/PT",
+  "Vitest + Playwright tests (20 passing)",
+  "Dockerfile + docker-compose + CI/CD",
+  "Sentry + Posthog + pino logger",
+  "Rate limiting + security headers",
+  "Lifetime updates (v1, v2, v3...)",
+  "MIT + Commercial license (1 project)",
+  "Email support (72h response)",
+  "Self-serve docs (README + deploy guide)",
+];
+
+const HONESTY = [
+  { label: "❌ No incluye", value: "Demo en vivo hosteada por mí" },
+  { label: "❌ No incluye", value: "Discord privado / soporte prioritario" },
+  { label: "❌ No incluye", value: "Onboarding calls o consultoría" },
+  { label: "❌ No incluye", value: "Customizaciones a medida" },
+  { label: "✅ Sí incluye", value: "Código completo para que deployes tú" },
+  { label: "✅ Sí incluye", value: "Guía paso a paso (docs/deploy.md)" },
+  { label: "✅ Sí incluye", value: "GitHub Issues para preguntas" },
+  { label: "✅ Sí incluye", value: "Actualizaciones de por vida" },
 ];
 
 const FAQ = [
   {
-    q: "¿What does 'commercial use' mean?",
-    a: "Selling this kit, a derivative product, or using it as the foundation of a paid SaaS where the source is not openly published. Personal learning and open-source projects are free under MIT.",
+    q: "¿Por qué $29 y no $89?",
+    a: "Porque no incluyo demo en vivo ni Discord de soporte. Tú deployas tú mismo con la guía incluida. El código vale $89+, pero al no tener overhead de soporte, te lo paso a $29.",
   },
   {
-    q: "Can I get a refund?",
-    a: "Yes — 14-day no-questions-asked refund. If the kit doesn't work for you, email refunds@di3go04.dev.",
+    q: "¿Necesito saber programar?",
+    a: "Sí. Esto es para developers. Si no sabes Next.js/Supabase, contrata a uno o usa un no-code builder como Bubble.",
   },
   {
-    q: "Do you offer student / nonprofit discounts?",
-    a: "Yes! 50% off for verified students and registered nonprofits. Email us with proof.",
+    q: "¿Cuánto tarda en estar listo?",
+    a: "1-3 días si sigues docs/deploy.md. Necesitas: cuenta gratis en Vercel + Supabase + Stripe + Resend. Todo tiene free tier.",
   },
   {
-    q: "What's included in support?",
-    a: "Single: email (48h). Team: priority email + Discord (24h). Lifetime: Slack + quarterly calls.",
+    q: "¿Hay reembolso?",
+    a: "Sí, 14 días. Si el código no te sirve, te devuelvo el 100%. Solo responde al email de compra.",
   },
   {
-    q: "Can I upgrade my license later?",
-    a: "Yes — pay the difference anytime within the first 12 months. Email billing@di3go04.dev.",
+    q: "¿Actualizaciones?",
+    a: "Lifetime. Cuando saque v2, v3, etc., te llega el link de descarga por email.",
   },
   {
-    q: "Is the code mine after purchase?",
-    a: "Yes. You receive a perpetual license to use, modify, and distribute derivative products according to your license tier.",
+    q: "¿Puedo usarlo para múltiples proyectos?",
+    a: "La licencia $29 cubre 1 proyecto comercial. Para multi-proyecto, compra 2 licencias o contáctame por la Team License.",
+  },
+  {
+    q: "¿Cómo recibo el código?",
+    a: "Tras pagar, recibes un email con el link al repo privado de GitHub. Te doy acceso de lectura de por vida.",
+  },
+  {
+    q: "¿Y si encuentro un bug?",
+    a: "Abre un Issue en GitHub. Lo arreglo y subo fix en la próxima versión. Sin SLA, pero respondo todos los issues.",
   },
 ];
 
@@ -107,16 +77,12 @@ export default function PricingPage() {
       <header className="border-b">
         <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-semibold">
-            <Sparkles className="h-5 w-5 text-primary" />
+            <Shield className="h-5 w-5 text-primary" />
             Starter Kit
           </Link>
           <div className="flex items-center gap-2">
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/">← Volver</Link>
-            </Button>
-            <Button asChild size="sm">
-              <Link href="/register">Probar demo</Link>
-            </Button>
+            <Button asChild variant="ghost" size="sm"><Link href="/">← Volver</Link></Button>
+            <Button asChild size="sm"><Link href="/register">Probar demo</Link></Button>
           </div>
         </div>
       </header>
@@ -126,131 +92,128 @@ export default function PricingPage() {
         <section className="border-b bg-muted/30">
           <div className="mx-auto max-w-4xl px-4 py-16 text-center">
             <Badge variant="secondary" className="mb-4">
-              <Zap className="mr-1 h-3 w-3" /> One-time payment · No subscription
+              <Zap className="mr-1 h-3 w-3" /> One-time payment · Lifetime updates
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Lanza tu SaaS en{" "}
+              Un solo pago.{" "}
               <span className="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
-                días, no meses
+                Código completo.
               </span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Un solo pago. Licencia perpetua. Código completo. Sin regalías.
+              Sin suscripciones. Sin Discord. Sin overhead. Solo código production-ready.
             </p>
           </div>
         </section>
 
-        {/* Pricing cards */}
+        {/* Pricing card */}
         <section className="border-b">
-          <div className="mx-auto max-w-6xl px-4 py-16">
-            <div className="grid gap-6 md:grid-cols-3">
-              {PLANS.map((plan) => {
-                const Icon = plan.icon;
-                return (
-                  <Card
-                    key={plan.id}
-                    className={`relative flex flex-col ${
-                      plan.highlight ? "border-primary shadow-lg ring-1 ring-primary" : ""
-                    }`}
-                  >
-                    {plan.badge && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <Badge className="bg-primary text-primary-foreground">
-                          {plan.badge}
-                        </Badge>
-                      </div>
-                    )}
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <CardTitle>{plan.name}</CardTitle>
-                      </div>
-                      <CardDescription>{plan.description}</CardDescription>
-                      <div className="mt-4">
-                        <span className="text-4xl font-bold">${plan.price}</span>
-                        <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
-                      </div>
-                    </CardHeader>
+          <div className="mx-auto max-w-3xl px-4 py-16">
+            <Card className="border-primary shadow-lg">
+              <CardHeader className="text-center pb-6">
+                <div className="flex justify-center mb-3">
+                  <Badge className="bg-primary text-primary-foreground">
+                    <Zap className="mr-1 h-3 w-3" /> Single Payment
+                  </Badge>
+                </div>
+                <CardTitle className="text-2xl">Developer License</CardTitle>
+                <CardDescription>Para 1 proyecto comercial</CardDescription>
+                <div className="mt-6">
+                  <span className="text-6xl font-bold">$29</span>
+                  <span className="text-lg text-muted-foreground ml-2">USD</span>
+                  <p className="text-xs text-muted-foreground mt-2 line-through">$89 precio normal</p>
+                </div>
+              </CardHeader>
 
-                    <CardContent className="flex-1">
-                      <Separator className="mb-4" />
-                      <ul className="space-y-2.5 text-sm">
-                        {plan.features.map((f) => (
-                          <li key={f.text} className="flex items-start gap-2">
-                            {f.included ? (
-                              <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                            ) : (
-                              <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40" />
-                            )}
-                            <span className={f.included ? "" : "text-muted-foreground/60 line-through"}>
-                              {f.text}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <p className="text-sm font-semibold mb-3 text-emerald-600">✅ Todo incluido</p>
+                    <ul className="space-y-2 text-sm">
+                      {INCLUDED.slice(0, 8).map((f) => (
+                        <li key={f} className="flex items-start gap-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold mb-3 text-emerald-600">✅ Y también</p>
+                    <ul className="space-y-2 text-sm">
+                      {INCLUDED.slice(8).map((f) => (
+                        <li key={f} className="flex items-start gap-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
 
-                    <CardFooter>
-                      <Button
-                        asChild
-                        className="w-full"
-                        variant={plan.highlight ? "default" : "outline"}
-                      >
-                        <a href={plan.href} target="_blank" rel="noopener noreferrer">
-                          {plan.cta}
-                        </a>
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                );
-              })}
+              <CardFooter className="flex flex-col gap-3 pt-6">
+                <Button asChild size="lg" className="w-full">
+                  <a href="https://gumroad.com/l/starter-kit-di3go04" target="_blank" rel="noopener noreferrer">
+                    <Zap className="mr-2 h-4 w-4" /> Comprar $29 — Lifetime access
+                  </a>
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Garantía 14 días · Email de soporte · Sin subscripción
+                </p>
+              </CardFooter>
+            </Card>
+
+            {/* Honestidad */}
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold text-center mb-6">Honestidad radical</h2>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {HONESTY.map((h, i) => (
+                      <div key={i} className="text-sm">
+                        <span className="font-semibold">{h.label}:</span>{" "}
+                        <span className="text-muted-foreground">{h.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 pt-6 border-t text-sm text-muted-foreground">
+                    <p>
+                      💡 <strong>Precio honesto = producto honesto.</strong> Si en el futuro añado demo en vivo + Discord,
+                      el precio sube a $89. Los que compren ahora a $29 reciben el mismo código y todas las actualizaciones futuras gratis.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-
-            <p className="text-center text-xs text-muted-foreground mt-8">
-              Precios en USD. Pagos procesados por Gumroad. IVA no incluido para clientes EU.
-            </p>
           </div>
         </section>
 
-        {/* Comparison */}
+        {/* What you get */}
         <section className="border-b bg-muted/30">
           <div className="mx-auto max-w-4xl px-4 py-16">
-            <h2 className="text-3xl font-bold text-center mb-2">¿Por qué este kit?</h2>
-            <p className="text-center text-muted-foreground mb-12">
-              Comparado con construir desde cero o comprar otros boilerplates.
-            </p>
-            <div className="grid gap-4 md:grid-cols-3">
+            <h2 className="text-3xl font-bold text-center mb-12">Lo que recibes tras comprar</h2>
+            <div className="grid gap-6 md:grid-cols-3">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-base">From scratch</CardTitle>
-                  <CardDescription>3-6 meses de desarrollo</CardDescription>
+                  <Code2 className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="text-base">Código fuente</CardTitle>
+                  <CardDescription>Acceso al repo GitHub privado de por vida</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold text-rose-600">$15,000+</p>
-                  <p className="text-xs text-muted-foreground mt-1">en tiempo de desarrollo</p>
-                </CardContent>
-              </Card>
-              <Card className="border-primary">
-                <CardHeader>
-                  <CardTitle className="text-base">This kit</CardTitle>
-                  <CardDescription>1-3 días para lanzar</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold text-emerald-600">$89</p>
-                  <p className="text-xs text-muted-foreground mt-1">pago único</p>
-                </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-base">Otros boilerplates</CardTitle>
-                  <CardDescription>Calidad variable</CardDescription>
+                  <FileText className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="text-base">Documentación</CardTitle>
+                  <CardDescription>README + deploy.md + CHANGELOG + ROADMAP</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold text-amber-600">$199-499</p>
-                  <p className="text-xs text-muted-foreground mt-1">con menos features</p>
-                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <Github className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="text-base">Updates forever</CardTitle>
+                  <CardDescription>Cada nuevo feature v1.x, v2, v3... gratis</CardDescription>
+                </CardHeader>
               </Card>
             </div>
           </div>
@@ -274,18 +237,19 @@ export default function PricingPage() {
         {/* CTA */}
         <section className="bg-primary text-primary-foreground">
           <div className="mx-auto max-w-4xl px-4 py-16 text-center">
-            <h2 className="text-3xl font-bold">¿Listo para lanzar?</h2>
+            <h2 className="text-3xl font-bold">¿Listo para empezar?</h2>
             <p className="mt-2 opacity-90">
-              Únete a 500+ desarrolladores que ya están construyendo con este kit.
+              $29 · Pago único · Garantía 14 días · Updates de por vida
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" variant="secondary">
                 <a href="https://gumroad.com/l/starter-kit-di3go04" target="_blank" rel="noopener noreferrer">
-                  <Building2 className="mr-2 h-4 w-4" /> Comprar licencia
+                  <Zap className="mr-2 h-4 w-4" /> Comprar ahora
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/register">Probar demo gratis</Link>
+                <Link href="/register">Ver demo gratis
+              </Link>
               </Button>
             </div>
           </div>
