@@ -57,3 +57,4 @@ prompt
 
 # Skills
 /skills/
+.env.production
