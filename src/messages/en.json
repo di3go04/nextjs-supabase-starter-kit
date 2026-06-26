@@ -1,0 +1,132 @@
+{
+  "common": {
+    "appName": "Next.js + Supabase Starter",
+    "loading": "Loading…",
+    "save": "Save",
+    "cancel": "Cancel",
+    "logout": "Sign out",
+    "search": "Search",
+    "actions": "Actions"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "billing": "Billing",
+    "admin": "Admin"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Sign in with Magic Link or your Google / GitHub account.",
+      "sendMagicLink": "Send Magic Link",
+      "or": "or",
+      "google": "Continue with Google",
+      "github": "Continue with GitHub",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up"
+    },
+    "register": {
+      "title": "Create account",
+      "subtitle": "No password needed. We'll send you a magic link by email.",
+      "sendMagicLink": "Create account with Magic Link",
+      "or": "or",
+      "google": "Sign up with Google",
+      "github": "Sign up with GitHub",
+      "haveAccount": "Already have an account?",
+      "login": "Sign in"
+    }
+  },
+  "dashboard": {
+    "welcome": "Hi",
+    "welcomeBack": "Welcome to your dashboard. Your current role is",
+    "cards": {
+      "profile": {
+        "title": "Profile",
+        "desc": "Edit your name, username and avatar.",
+        "cta": "Go to profile"
+      },
+      "billing": {
+        "title": "Billing",
+        "desc": "Manage your Stripe subscription.",
+        "cta": "See plans"
+      },
+      "security": {
+        "title": "Security",
+        "desc": "Passwordless auth with Magic Link + OAuth.",
+        "badge": "Protected"
+      }
+    }
+  },
+  "profile": {
+    "title": "My profile",
+    "subtitle": "Update your public information.",
+    "avatar": {
+      "title": "Avatar",
+      "desc": "Upload an image (max 2MB, JPG/PNG/WebP).",
+      "upload": "Upload"
+    },
+    "data": {
+      "title": "Data",
+      "desc": "Your name and username are public in the app.",
+      "fullName": "Full name",
+      "username": "Username",
+      "email": "Email",
+      "emailHint": "Email is managed by your auth provider."
+    }
+  },
+  "billing": {
+    "title": "Billing",
+    "subtitle": "Manage your plan and subscription.",
+    "currentPlan": "Current plan",
+    "success": "Payment completed! Your account is now Premium.",
+    "canceled": "Checkout canceled.",
+    "manage": {
+      "title": "Manage subscription",
+      "desc": "Update payment method, cancel or switch plan from Stripe portal.",
+      "cta": "Open Stripe portal"
+    },
+    "plans": {
+      "pro": {
+        "name": "Pro",
+        "features": ["Unlimited projects", "10k API calls / month", "Priority support", "No branding"]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "features": ["Everything in Pro", "SSO / SAML", "99.99% SLA", "Dedicated support"]
+      },
+      "upgradeTo": "Upgrade to"
+    }
+  },
+  "roles": {
+    "user": "User",
+    "free": "Free",
+    "premium": "Premium",
+    "admin": "Admin"
+  },
+  "admin": {
+    "title": "Admin panel",
+    "subtitle": "Real-time metrics, users and subscriptions.",
+    "metrics": {
+      "users": "Total users",
+      "premium": "Premium subscribers",
+      "mrr": "MRR (monthly recurring revenue)",
+      "churn": "Churn (30 days)"
+    },
+    "users": {
+      "title": "Users",
+      "email": "Email",
+      "role": "Role",
+      "plan": "Plan",
+      "createdAt": "Joined",
+      "actions": "Actions",
+      "changeRole": "Change role",
+      "ban": "Ban",
+      "empty": "No users"
+    }
+  },
+  "errors": {
+    "forbidden": "You don't have permission to access this page.",
+    "rateLimited": "Too many requests. Please try again in a minute.",
+    "generic": "Something went wrong."
+  }
+}

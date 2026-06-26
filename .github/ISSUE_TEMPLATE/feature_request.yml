@@ -1,0 +1,36 @@
+name: ✨ Feature request
+description: Suggest a new feature
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Check the [roadmap](../ROADMAP.md) first to see if it's already planned.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case. Don't propose a solution yet.
+      placeholder: "As a team admin, I can't see who has accepted their invitation..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would the ideal UX/API look like?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: willingness
+    attributes:
+      label: Would you be willing to PR this?
+      options:
+        - "Yes, I can submit a PR"
+        - "Maybe, need guidance"
+        - "No, just suggesting"

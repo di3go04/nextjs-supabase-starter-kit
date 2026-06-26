@@ -1,0 +1,61 @@
+name: 🐛 Bug report
+description: Report something that's broken
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report! Before submitting, please:
+        1. Search existing issues to avoid duplicates.
+        2. Try the latest version (`git pull && bun install`).
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly. What did you expect? What actually happened?
+      placeholder: "When I click 'Upgrade' on /dashboard/billing, nothing happens..."
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Numbered list, be precise.
+      placeholder: |
+        1. Go to /dashboard/billing
+        2. Click 'Upgrade to Pro'
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Kit version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Node 20, macOS 14, Chrome 130"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Browser console + server terminal output. Paste between the backticks.
+      render: shell
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - 🟡 Low (cosmetic, workaround exists)
+        - 🟠 Medium (feature broken, but not blocking)
+        - 🔴 High (blocking production)
+        - 🔥 Critical (data loss / security)
+    validations:
+      required: true

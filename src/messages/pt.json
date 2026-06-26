@@ -1,0 +1,104 @@
+{
+  "common": {
+    "appName": "Next.js + Supabase Starter",
+    "loading": "Carregando…",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "logout": "Sair"
+  },
+  "nav": {
+    "dashboard": "Painel",
+    "profile": "Perfil",
+    "billing": "Cobrança",
+    "admin": "Admin"
+  },
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "subtitle": "Entre com Magic Link ou sua conta Google / GitHub.",
+      "sendMagicLink": "Enviar Magic Link",
+      "or": "ou",
+      "google": "Continuar com Google",
+      "github": "Continuar com GitHub",
+      "noAccount": "Não tem conta?",
+      "register": "Cadastre-se"
+    },
+    "register": {
+      "title": "Criar conta",
+      "subtitle": "Sem senha. Enviaremos um link mágico por email.",
+      "sendMagicLink": "Criar conta com Magic Link",
+      "or": "ou",
+      "google": "Cadastrar com Google",
+      "github": "Cadastrar com GitHub",
+      "haveAccount": "Já tem conta?",
+      "login": "Entrar"
+    }
+  },
+  "dashboard": {
+    "welcome": "Olá",
+    "welcomeBack": "Bem-vindo ao seu painel. Seu papel atual é",
+    "cards": {
+      "profile": {
+        "title": "Perfil",
+        "desc": "Edite seu nome, username e avatar.",
+        "cta": "Ir para o perfil"
+      },
+      "billing": {
+        "title": "Cobrança",
+        "desc": "Gerencie sua assinatura Stripe.",
+        "cta": "Ver planos"
+      },
+      "security": {
+        "title": "Segurança",
+        "desc": "Auth sem senha com Magic Link + OAuth.",
+        "badge": "Protegido"
+      }
+    }
+  },
+  "profile": {
+    "title": "Meu perfil",
+    "subtitle": "Atualize suas informações públicas.",
+    "avatar": {
+      "title": "Avatar",
+      "desc": "Envie uma imagem (máx 2MB, JPG/PNG/WebP).",
+      "upload": "Enviar"
+    },
+    "data": {
+      "title": "Dados",
+      "desc": "Seu nome e username são públicos no app.",
+      "fullName": "Nome completo",
+      "username": "Username",
+      "email": "Email",
+      "emailHint": "O email é gerenciado pelo seu provedor de auth."
+    }
+  },
+  "billing": {
+    "title": "Cobrança",
+    "subtitle": "Gerencie seu plano e assinatura.",
+    "currentPlan": "Plano atual",
+    "success": "Pagamento concluído! Sua conta agora é Premium.",
+    "canceled": "Checkout cancelado.",
+    "manage": {
+      "title": "Gerenciar assinatura",
+      "desc": "Atualize método de pagamento, cancele ou troque de plano pelo portal Stripe.",
+      "cta": "Abrir portal Stripe"
+    },
+    "plans": {
+      "pro": {
+        "name": "Pro",
+        "features": ["Projetos ilimitados", "10k chamadas API / mês", "Suporte prioritário", "Sem branding"]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "features": ["Tudo do Pro", "SSO / SAML", "SLA 99.99%", "Suporte dedicado"]
+      },
+      "upgradeTo": "Upgrade para"
+    }
+  },
+  "roles": {
+    "user": "Usuário",
+    "free": "Free",
+    "premium": "Premium",
+    "admin": "Admin"
+  }
+}

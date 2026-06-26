@@ -1,0 +1,61 @@
+# docker-compose.yml
+# Levanta app + redis (para rate limiting con Upstash Redis local)
+# + stripe-cli (para reenviar webhooks a local en dev).
+#
+# Uso:
+#   docker compose up                        # app en :3000
+#   docker compose --profile dev up          # app + redis + stripe-cli
+#   docker compose --profile test up --abort-on-container-exit  # e2e
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - starter-net
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - starter-net
+    profiles:
+      - dev
+      - test
+
+  stripe-cli:
+    image: stripe/stripe-cli:latest
+    command: listen --forward-to app:3000/api/webhooks/stripe
+    env_file:
+      - .env
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - starter-net
+    profiles:
+      - dev
+
+volumes:
+  redis-data:
+
+networks:
+  starter-net:
+    driver: bridge

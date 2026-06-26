@@ -1,0 +1,30 @@
+import "@testing-library/jest-dom/vitest";
+import { cleanup } from "@testing-library/react";
+import { afterEach, vi } from "vitest";
+
+afterEach(() => {
+  cleanup();
+});
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    refresh: vi.fn(),
+    back: vi.fn(),
+  }),
+  usePathname: () => "/",
+  useSearchParams: () => new URLSearchParams(),
+  redirect: vi.fn(),
+}));
+
+vi.mock("next-intl", () => ({
+  useTranslations: () => (key: string) => key,
+  useLocale: () => "es",
+  NextIntlClientProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
+
+vi.mock("next-themes", () => ({
+  useTheme: () => ({ theme: "light", setTheme: vi.fn() }),
+  ThemeProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
