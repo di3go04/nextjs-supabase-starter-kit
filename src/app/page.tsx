@@ -66,7 +66,7 @@ const COMPARISON = [
   { feature: "Audit logs", this_kit: true, others: false, scratch: false },
   { feature: "Security headers (CSP, HSTS)", this_kit: true, others: "Básico", scratch: false },
   { feature: "Tiempo hasta producción", this_kit: "1-3 días", others: "1-3 días", scratch: "3-6 meses" },
-  { feature: "Precio", this_kit: "$29", others: "$199-499", scratch: "$15,000+" },
+  { feature: "Precio", this_kit: "$50", others: "$199-499", scratch: "$15,000+" },
 ];
 
 const FAQ = [
@@ -170,7 +170,7 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button asChild size="lg">
-                  <Link href="/pricing"><Zap className="mr-2 h-4 w-4" /> Comprar — $29</Link>
+                  <Link href="/pricing"><Zap className="mr-2 h-4 w-4" /> Comprar — $50</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link href="/register">Probar demo <ArrowRight className="ml-2 h-4 w-4" /></Link>
@@ -380,7 +380,7 @@ export default function Home() {
             <p className="mt-2 opacity-90">Lanza tu SaaS este fin de semana. Garantía de 14 días.</p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" variant="secondary">
-                <Link href="/pricing"><Zap className="mr-2 h-4 w-4" /> Comprar $29</Link>
+                <Link href="/pricing"><Zap className="mr-2 h-4 w-4" /> Comprar $50</Link>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="/register">Probar demo gratis</Link>

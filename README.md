@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/badge/License-MIT%20%2B%20Commercial-blue)](./LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](./CHANGELOG.md)
 
-**[🛒 Comprar $29](https://gumroad.com/l/starter-kit-di3go04)** · [⭐ Star en GitHub](https://github.com/di3go04/nextjs-supabase-starter-kit) · [📚 Documentación](./docs/deploy.md)
+**[🛒 Comprar $50](https://gumroad.com/l/starter-kit-di3go04)** · [⭐ Star en GitHub](https://github.com/di3go04/nextjs-supabase-starter-kit) · [📚 Documentación](./docs/deploy.md)
 
 </div>
 
@@ -30,7 +30,7 @@
     <td><img src="./screenshots/02-login.png" alt="Login"/></td>
   </tr>
   <tr>
-    <td align="center"><b>Pricing — $29 single payment</b></td>
+    <td align="center"><b>Pricing — $50 single payment</b></td>
     <td align="center"><b>i18n EN/ES/PT funcional</b></td>
   </tr>
   <tr>
@@ -41,11 +41,11 @@
 
 ---
 
-## 💰 Precio honesto: $29
+## 💰 Precio honesto: $50
 
 Sin demo hosteada. Sin Discord. Sin soporte premium. Solo **código production-ready** + docs.
 
-**¿Por qué $29 y no $89?**
+**¿Por qué $50 y no $89?**
 
 | Lo que SÍ incluye | Lo que NO incluye |
 |-------------------|-------------------|
@@ -55,7 +55,7 @@ Sin demo hosteada. Sin Discord. Sin soporte premium. Solo **código production-r
 | ✅ Email de soporte (72h) | ❌ Customizaciones a medida |
 | ✅ MIT + Commercial license (1 proyecto) | ❌ Multi-project license |
 
-Si en el futuro añado demo + Discord, el precio sube a $89. **Los que compran ahora a $29 reciben el mismo código y todas las actualizaciones futuras gratis.**
+Si en el futuro añado demo + Discord, el precio sube a $89. **Los que compran ahora a $50 reciben el mismo código y todas las actualizaciones futuras gratis.**
 
 ---
 
@@ -207,11 +207,11 @@ docker build -t starter-kit .     # producción
 
 | Plan | Precio | Incluye |
 |------|--------|---------|
-| **Developer License** | **$29** | 1 proyecto commercial, updates de por vida, email soporte |
+| **Developer License** | **$50** | 1 proyecto commercial, updates de por vida, email soporte |
 | Team License (próximamente) | $99 | 5 proyectos, soporte prioritario |
 | Lifetime License (próximamente) | $199 | Proyectos ilimitados |
 
-👉 **[Comprar $29 en Gumroad](https://gumroad.com/l/starter-kit-di3go04)**
+👉 **[Comprar $50 en Gumroad](https://gumroad.com/l/starter-kit-di3go04)**
 
 Garantía 14 días. Si no te sirve, te devuelvo el 100% sin preguntas.
 
@@ -235,6 +235,6 @@ Construido con [Next.js](https://nextjs.org), [Supabase](https://supabase.com), 
 
 <div align="center">
 
-**[🛒 Comprar $29](https://gumroad.com/l/starter-kit-di3go04)** · Garantía 14 días · Updates de por vida
+**[🛒 Comprar $50](https://gumroad.com/l/starter-kit-di3go04)** · Garantía 14 días · Updates de por vida
 
 </div>

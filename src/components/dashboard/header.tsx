@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { LayoutDashboard, User, CreditCard, LogOut, Shield, Users } from "lucide-react";
+import { LayoutDashboard, User, CreditCard, LogOut, Shield, Users, Key, BarChart3, Bell } from "lucide-react";
 import { useUser } from "@/context/user-context";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -20,6 +20,7 @@ import { ROLE_BADGE_CLASS, ROLE_LABELS } from "@/lib/rbac";
 import { signOutServer } from "@/app/actions/auth";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { NotificationBell } from "@/components/notification-bell";
 
 export function DashboardHeader() {
   const { user } = useUser();
@@ -39,8 +40,12 @@ export function DashboardHeader() {
     { href: "/dashboard/profile", label: t("profile"), icon: User },
     { href: "/dashboard/billing", label: t("billing"), icon: CreditCard },
     { href: "/dashboard/teams", label: "Equipos", icon: Users },
+    { href: "/dashboard/api-keys", label: "API Keys", icon: Key },
     ...(user?.role === "admin"
-      ? [{ href: "/dashboard/admin", label: t("admin"), icon: Shield }]
+      ? [
+          { href: "/dashboard/admin", label: t("admin"), icon: Shield },
+          { href: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
+        ]
       : []),
   ];
 
@@ -79,6 +84,7 @@ export function DashboardHeader() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <LanguageSwitcher />
+          <NotificationBell />
           {user && (
             <Badge
               variant="secondary"

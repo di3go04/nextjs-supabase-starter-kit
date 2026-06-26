@@ -1,28 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { Check, Zap, Code2, FileText, Github, Shield } from "lucide-react";
+import { Check, Zap, Code2, FileText, Github, Shield, BarChart3, Bell, Key } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const INCLUDED = [
+  // Core
   "Full source code (Next.js 16 + Supabase + Stripe + Resend)",
   "Auth Magic Link + OAuth (Google/GitHub)",
   "RBAC middleware (user/free/premium/admin)",
   "Stripe Checkout + idempotent webhook",
-  "Admin panel with MRR/churn metrics",
-  "Teams/Organizations + invitations",
   "8 React Email templates",
-  "i18n ES/EN/PT",
-  "Vitest + Playwright tests (20 passing)",
-  "Dockerfile + docker-compose + CI/CD",
+  "i18n ES/EN/PT (next-intl)",
+  // Premium (justifica el salto a $50)
+  "📊 Analytics dashboard with Recharts (MRR, churn, growth)",
+  "🔔 In-app notifications system (bell + dropdown)",
+  "🔑 API Keys management + public /api/v1 endpoint",
+  "👥 Teams/Organizations multi-seat + invitations",
+  "🛡️ Admin panel with MRR/churn metrics + audit logs",
+  // DevOps
+  "Vitest + Playwright tests (38 passing)",
+  "Dockerfile + docker-compose + GitHub Actions CI",
   "Sentry + Posthog + pino logger",
-  "Rate limiting + security headers",
+  "Rate limiting + security headers (CSP, HSTS)",
+  // Docs
+  "📚 ARCHITECTURE.md — 10 decisions explained",
+  "📚 MONETIZATION.md — pricing, churn, marketing playbook",
+  "📚 DEPLOY.md — Vercel 1-click guide",
+  // License
   "Lifetime updates (v1, v2, v3...)",
   "MIT + Commercial license (1 project)",
   "Email support (72h response)",
-  "Self-serve docs (README + deploy guide)",
+  "Self-serve docs (README + 4 guides)",
 ];
 
 const HONESTY = [
@@ -36,18 +47,38 @@ const HONESTY = [
   { label: "✅ Sí incluye", value: "Actualizaciones de por vida" },
 ];
 
+const VALUE_BREAKDOWN = [
+  { item: "Auth + RBAC + middleware", value: "$15" },
+  { item: "Stripe + webhook idempotente", value: "$10" },
+  { item: "Analytics dashboard + Recharts", value: "$8" },
+  { item: "In-app notifications system", value: "$5" },
+  { item: "API Keys + public endpoint", value: "$7" },
+  { item: "Teams/Organizations + invitations", value: "$10" },
+  { item: "Admin panel + audit logs", value: "$8" },
+  { item: "8 React Email templates", value: "$5" },
+  { item: "i18n ES/EN/PT", value: "$5" },
+  { item: "Tests + Docker + CI", value: "$7" },
+  { item: "Sentry + Posthog + logger", value: "$5" },
+  { item: "Docs premium (Architecture + Monetization)", value: "$10" },
+  { item: "Lifetime updates", value: "$∞" },
+];
+
 const FAQ = [
   {
-    q: "¿Por qué $29 y no $89?",
-    a: "Porque no incluyo demo en vivo ni Discord de soporte. Tú deployas tú mismo con la guía incluida. El código vale $89+, pero al no tener overhead de soporte, te lo paso a $29.",
+    q: "¿Por qué $50 y no $89?",
+    a: "Porque no incluyo demo en vivo ni Discord de soporte. Tú deployas tú mismo con la guía incluida. El código vale $89+, pero al no tener overhead de soporte, te lo paso a $50.",
+  },
+  {
+    q: "¿Qué diferencia hay entre $50 y otros boilerplates a $199?",
+    a: "Otros incluyen demo hosteada, Discord, video onboarding y soporte prioritario. Mi kit tiene el MISMO código y features, pero tú haces el deploy. Ahorras $149.",
   },
   {
     q: "¿Necesito saber programar?",
-    a: "Sí. Esto es para developers. Si no sabes Next.js/Supabase, contrata a uno o usa un no-code builder como Bubble.",
+    a: "Sí. Esto es para developers con experiencia en React/Next.js. Si no sabes TypeScript, contrata a uno.",
   },
   {
     q: "¿Cuánto tarda en estar listo?",
-    a: "1-3 días si sigues docs/deploy.md. Necesitas: cuenta gratis en Vercel + Supabase + Stripe + Resend. Todo tiene free tier.",
+    a: "1-3 días siguiendo docs/deploy.md. Necesitas: cuenta gratis en Vercel + Supabase + Stripe + Resend. Todo free tier.",
   },
   {
     q: "¿Hay reembolso?",
@@ -59,7 +90,7 @@ const FAQ = [
   },
   {
     q: "¿Puedo usarlo para múltiples proyectos?",
-    a: "La licencia $29 cubre 1 proyecto comercial. Para multi-proyecto, compra 2 licencias o contáctame por la Team License.",
+    a: "La licencia $50 cubre 1 proyecto comercial. Para multi-proyecto, compra 2 licencias o contáctame por la Team License.",
   },
   {
     q: "¿Cómo recibo el código?",
@@ -97,11 +128,11 @@ export default function PricingPage() {
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
               Un solo pago.{" "}
               <span className="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
-                Código completo.
+                22 features premium.
               </span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Sin suscripciones. Sin Discord. Sin overhead. Solo código production-ready.
+              Sin suscripciones. Sin Discord. Sin overhead. Solo código production-ready + docs premium.
             </p>
           </div>
         </section>
@@ -117,11 +148,13 @@ export default function PricingPage() {
                   </Badge>
                 </div>
                 <CardTitle className="text-2xl">Developer License</CardTitle>
-                <CardDescription>Para 1 proyecto comercial</CardDescription>
+                <CardDescription>Para 1 proyecto comercial · 22 features incluidas</CardDescription>
                 <div className="mt-6">
-                  <span className="text-6xl font-bold">$29</span>
+                  <span className="text-6xl font-bold">$50</span>
                   <span className="text-lg text-muted-foreground ml-2">USD</span>
-                  <p className="text-xs text-muted-foreground mt-2 line-through">$89 precio normal</p>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    <span className="line-through">$199 valor real</span> · Ahorras $149
+                  </p>
                 </div>
               </CardHeader>
 
@@ -130,7 +163,7 @@ export default function PricingPage() {
                   <div>
                     <p className="text-sm font-semibold mb-3 text-emerald-600">✅ Todo incluido</p>
                     <ul className="space-y-2 text-sm">
-                      {INCLUDED.slice(0, 8).map((f) => (
+                      {INCLUDED.slice(0, 11).map((f) => (
                         <li key={f} className="flex items-start gap-2">
                           <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                           <span>{f}</span>
@@ -141,7 +174,7 @@ export default function PricingPage() {
                   <div>
                     <p className="text-sm font-semibold mb-3 text-emerald-600">✅ Y también</p>
                     <ul className="space-y-2 text-sm">
-                      {INCLUDED.slice(8).map((f) => (
+                      {INCLUDED.slice(11).map((f) => (
                         <li key={f} className="flex items-start gap-2">
                           <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                           <span>{f}</span>
@@ -155,7 +188,7 @@ export default function PricingPage() {
               <CardFooter className="flex flex-col gap-3 pt-6">
                 <Button asChild size="lg" className="w-full">
                   <a href="https://gumroad.com/l/starter-kit-di3go04" target="_blank" rel="noopener noreferrer">
-                    <Zap className="mr-2 h-4 w-4" /> Comprar $29 — Lifetime access
+                    <Zap className="mr-2 h-4 w-4" /> Comprar $50 — Lifetime access
                   </a>
                 </Button>
                 <p className="text-xs text-muted-foreground text-center">
@@ -163,6 +196,27 @@ export default function PricingPage() {
                 </p>
               </CardFooter>
             </Card>
+
+            {/* Value breakdown */}
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold text-center mb-6">Desglose de valor</h2>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {VALUE_BREAKDOWN.map((v) => (
+                      <div key={v.item} className="flex items-center justify-between text-sm py-1.5 border-b last:border-0">
+                        <span className="text-muted-foreground">{v.item}</span>
+                        <span className="font-mono font-semibold">{v.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t-2 border-primary text-center">
+                    <p className="text-sm text-muted-foreground">Valor total ≈ <span className="line-through">$105</span></p>
+                    <p className="text-2xl font-bold text-emerald-600 mt-1">Tu precio: $50</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
             {/* Honestidad */}
             <div className="mt-12">
@@ -180,7 +234,7 @@ export default function PricingPage() {
                   <div className="mt-6 pt-6 border-t text-sm text-muted-foreground">
                     <p>
                       💡 <strong>Precio honesto = producto honesto.</strong> Si en el futuro añado demo en vivo + Discord,
-                      el precio sube a $89. Los que compren ahora a $29 reciben el mismo código y todas las actualizaciones futuras gratis.
+                      el precio sube a $89. Los que compren ahora a $50 reciben el mismo código y todas las actualizaciones futuras gratis.
                     </p>
                   </div>
                 </CardContent>
@@ -193,19 +247,26 @@ export default function PricingPage() {
         <section className="border-b bg-muted/30">
           <div className="mx-auto max-w-4xl px-4 py-16">
             <h2 className="text-3xl font-bold text-center mb-12">Lo que recibes tras comprar</h2>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-4">
               <Card>
                 <CardHeader>
                   <Code2 className="h-8 w-8 text-primary mb-2" />
                   <CardTitle className="text-base">Código fuente</CardTitle>
-                  <CardDescription>Acceso al repo GitHub privado de por vida</CardDescription>
+                  <CardDescription>170+ archivos, repo GitHub privado</CardDescription>
                 </CardHeader>
               </Card>
               <Card>
                 <CardHeader>
                   <FileText className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="text-base">Documentación</CardTitle>
-                  <CardDescription>README + deploy.md + CHANGELOG + ROADMAP</CardDescription>
+                  <CardTitle className="text-base">Docs premium</CardTitle>
+                  <CardDescription>Architecture + Monetization + Deploy</CardDescription>
+                </CardHeader>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <BarChart3 className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="text-base">Analytics ready</CardTitle>
+                  <CardDescription>Dashboard con gráficos incluido</CardDescription>
                 </CardHeader>
               </Card>
               <Card>
@@ -239,7 +300,7 @@ export default function PricingPage() {
           <div className="mx-auto max-w-4xl px-4 py-16 text-center">
             <h2 className="text-3xl font-bold">¿Listo para empezar?</h2>
             <p className="mt-2 opacity-90">
-              $29 · Pago único · Garantía 14 días · Updates de por vida
+              $50 · Pago único · Garantía 14 días · Updates de por vida
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" variant="secondary">
@@ -248,8 +309,7 @@ export default function PricingPage() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/register">Ver demo gratis
-              </Link>
+                <Link href="/register">Ver demo gratis</Link>
               </Button>
             </div>
           </div>
