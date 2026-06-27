@@ -16,11 +16,11 @@ export const dynamic = "force-dynamic";
 const TEMPLATES = [
   { id: "welcome", name: "Welcome", subject: "¡Bienvenido al Starter Kit!", render: () => render(<WelcomeEmail name="Ana" />) },
   { id: "subscription-success", name: "Subscription Success", subject: "¡Tu suscripción Pro está activa!", render: () => render(<SubscriptionSuccessEmail name="Ana" plan="pro" />) },
-  { id: "magic-link", name: "Magic Link", subject: "Tu link mágico", render: () => render(<MagicLinkEmail email="ana@example.com" url="https://starter-kit-di3go04.vercel.app/auth/callback?token=abc" />) },
+  { id: "magic-link", name: "Magic Link", subject: "Tu link mágico", render: () => render(<MagicLinkEmail email="ana@example.com" url="https://YOUR-APP.com/auth/callback?token=abc" />) },
   { id: "payment-failed", name: "Payment Failed", subject: "Tu pago falló", render: () => render(<PaymentFailedEmail name="Ana" attempt={2} />) },
   { id: "trial-ending", name: "Trial Ending", subject: "Tu trial termina en 3 días", render: () => render(<TrialEndingEmail name="Ana" daysLeft={3} />) },
   { id: "invoice-receipt", name: "Invoice Receipt", subject: "Recibo de pago", render: () => render(<InvoiceReceiptEmail name="Ana" amount={1900} currency="USD" period="Junio 2026" />) },
-  { id: "password-reset", name: "Password Reset", subject: "Restablece tu contraseña", render: () => render(<PasswordResetEmail email="ana@example.com" resetUrl="https://starter-kit-di3go04.vercel.app/reset?token=abc" />) },
+  { id: "password-reset", name: "Password Reset", subject: "Restablece tu contraseña", render: () => render(<PasswordResetEmail email="ana@example.com" resetUrl="https://YOUR-APP.com/reset?token=abc" />) },
   { id: "account-deleted", name: "Account Deleted", subject: "Tu cuenta fue eliminada", render: () => render(<AccountDeletedEmail name="Ana" />) },
 ];
 

@@ -1,4 +1,4 @@
-import pino from "pino";
+import pino, { type LoggerOptions } from "pino";
 
 /**
  * Logger estructurado para el servidor.
@@ -11,9 +11,13 @@ import pino from "pino";
  */
 
 const isProd = process.env.NODE_ENV === "production";
+const isTest = process.env.NODE_ENV === "test";
 
-export const logger = pino({
-  level: process.env.LOG_LEVEL ?? (isProd ? "info" : "debug"),
+// En tests, silenciar logs para no romper stdout
+// En dev, usar pino-pretty si está disponible
+// En prod, JSON plano (Vercel/Datadog lo parsean)
+const options: LoggerOptions = {
+  level: process.env.LOG_LEVEL ?? (isProd ? "info" : isTest ? "silent" : "debug"),
   base: {
     service: "starter-kit",
     env: process.env.NODE_ENV,
@@ -21,18 +25,26 @@ export const logger = pino({
   formatters: {
     level: (label) => ({ level: label }),
   },
-  // En dev, salida pretty. En prod, JSON (Vercel/Datadog lo parsean).
-  transport: isProd
-    ? undefined
-    : {
-        target: "pino-pretty",
-        options: {
-          colorize: true,
-          translateTime: "HH:MM:ss",
-          ignore: "pid,hostname,service,env",
-        },
+};
+
+// Solo intentar usar pino-pretty en dev (no en test, no en prod)
+if (!isProd && !isTest) {
+  try {
+    // Dynamic import para que no rompa si pino-pretty no está instalado
+    options.transport = {
+      target: "pino-pretty",
+      options: {
+        colorize: true,
+        translateTime: "HH:MM:ss",
+        ignore: "pid,hostname,service,env",
       },
-});
+    };
+  } catch {
+    // pino-pretty no instalado, usar JSON plano
+  }
+}
+
+export const logger = pino(options);
 
 /**
  * Helper para logging con contexto de request.

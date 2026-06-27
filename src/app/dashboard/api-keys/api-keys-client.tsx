@@ -215,7 +215,7 @@ export function ApiKeysClient() {
           <CardDescription>Ejemplo de llamada a la API pública.</CardDescription>
         </CardHeader>
         <CardContent>
-          <pre className="text-xs bg-muted p-3 rounded overflow-x-auto"><code>{`curl -X GET https://your-app.com/api/v1/me \\
+          <pre className="text-xs bg-muted p-3 rounded overflow-x-auto"><code>{`curl -X GET https://YOUR-DOMAIN.com/api/v1/me \\
   -H "Authorization: Bearer sk_live_xxxxxxxx"`}</code></pre>
         </CardContent>
       </Card>

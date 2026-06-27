@@ -6,7 +6,7 @@ import { logger } from "@/lib/logger";
  * Endpoint público de ejemplo — valida API key y devuelve info del usuario.
  *
  * Uso:
- *   curl -H "Authorization: Bearer sk_live_xxx" https://your-app.com/api/v1/me
+ *   curl -H "Authorization: Bearer sk_live_xxx" https://YOUR-DOMAIN.com/api/v1/me
  */
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get("authorization");

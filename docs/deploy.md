@@ -77,7 +77,7 @@ In Supabase Dashboard → Authentication → URL Configuration:
 - **Site URL**: `https://your-domain.com`
 - **Redirect URLs**:
   - `https://your-domain.com/auth/callback`
-  - `https://your-app.vercel.app/auth/callback` (preview deployments)
+  - `https://YOUR-APP.vercel.app/auth/callback` (preview deployments)
 
 ## Step 5 — Configure Stripe Webhook
 

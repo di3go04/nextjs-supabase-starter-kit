@@ -14,7 +14,7 @@ import {
 
 export function PaymentFailedEmail({
   name,
-  updateUrl = "https://starter-kit-di3go04.vercel.app/dashboard/billing",
+  updateUrl = "https://YOUR-APP.com/dashboard/billing",
   attempt = 1,
   maxAttempts = 3,
 }: {

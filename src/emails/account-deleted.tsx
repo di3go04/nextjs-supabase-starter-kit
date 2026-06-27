@@ -12,7 +12,7 @@ import {
 
 export function AccountDeletedEmail({
   name,
-  reactivateUrl = "https://starter-kit-di3go04.vercel.app/register",
+  reactivateUrl = "https://YOUR-APP.com/register",
 }: {
   name?: string;
   reactivateUrl?: string;
